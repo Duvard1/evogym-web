@@ -1,0 +1,209 @@
+/* ══════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════ */
+
+.hero {
+    position: relative;
+    width: 100%;
+
+    /* Desktop: pantalla completa */
+    height: 100vh;
+    min-height: 560px;
+
+    /* Empujar contenido bajo el navbar fijo (64px) */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ── Imagen de fondo ── */
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+
+    /* Suavizado al cargar */
+    transition: transform 0.6s ease;
+}
+
+/* ── Overlay oscuro ── */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    /* Degradado: más oscuro en la izquierda (donde va el texto),
+       más transparente hacia la derecha */
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.75) 50%,
+            rgba(0, 0, 0, 0.60) 100%);
+}
+
+/* ── Contenedor de contenido ── */
+.hero__content {
+    position: relative;
+    z-index: 2;
+
+    /* Centrado horizontal del inner */
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+
+    /* Ajuste por navbar sticky de 64px */
+    padding-top: 64px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+/* ── Logo imagen ── */
+.hero__logo {
+    display: flex;
+    align-items: center;
+}
+
+.hero__logo-img {
+    width: auto;
+    height: clamp(45px, 7vw, 65px);
+    object-fit: contain;
+    /* Sutil luminosidad al hacer hover */
+    transition: filter 0.2s ease;
+}
+
+/* ── Título principal (fuente Red Rose — estándar para títulos grandes) ── */
+.hero__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 5.5vw, 3.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ── Subtítulo / descripción ── */
+.hero__subtitle {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.80);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0;
+}
+
+/* ── Botones ── */
+.hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+}
+
+.hero__btn {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.65rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.22s, border-color 0.22s, color 0.22s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón primario — borde blanco */
+.hero__btn--primary {
+    color: #ffffff;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.70);
+}
+
+.hero__btn--primary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Botón secundario — borde + color brand */
+.hero__btn--secondary {
+    color: var(--color-brand, #60DB00);
+    background: transparent;
+    border: 1.5px solid var(--color-brand, #60DB00);
+}
+
+.hero__btn--secondary:hover {
+    background: rgba(96, 219, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .hero {
+        /* En móvil/tablet: altura natural, NO 100vh */
+        height: auto;
+        min-height: unset;
+        padding-top: 0;
+        padding-bottom: 3.5rem;
+    }
+
+    .hero__content {
+        padding-top: calc(64px + 3rem);
+        /* navbar + espacio extra */
+        padding-bottom: 1rem;
+        align-items: flex-start;
+    }
+
+    .hero__title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+
+    .hero__subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+    .hero__content {
+        padding: 0 1.25rem;
+        padding-top: calc(64px + 2rem);
+        padding-bottom: 3rem;
+    }
+
+    .hero__logo-evo,
+    .hero__logo-gym {
+        font-size: 1.75rem;
+    }
+
+    .hero__title {
+        font-size: 1.85rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hero__btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.82rem;
+    }
+}
