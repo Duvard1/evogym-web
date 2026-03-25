@@ -1,0 +1,250 @@
+/* ══════════════════════════════════════
+   FORM DATOS - DATOS DEL BENEFICIARIO
+══════════════════════════════════════ */
+
+.form-datos {
+    width: 100%;
+    background-color: #131313;
+    padding: 2rem 0 5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-datos__inner {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Encabezado ── */
+.form-datos__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: #60DB00;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+}
+
+.form-datos__subtitle {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    color: #a0a0a0;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 0 2.5rem 0;
+}
+
+/* ── Contenedor del Formulario (borde redondeado) ── */
+.form-datos__card {
+    width: 100%;
+    border: 1px solid #333333;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    background-color: transparent;
+}
+
+/* ── Filas del Formulario ── */
+.form-datos__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-datos__row--full {
+    grid-template-columns: 1fr;
+}
+
+/* ── Grupo de Input (Label + Input) ── */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group__label {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #dedede;
+}
+
+.form-group__label--required::after {
+    content: " *";
+    color: #60DB00;
+    font-weight: 700;
+}
+
+.form-group__input {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+}
+
+.form-group__input::placeholder {
+    color: #666666;
+    font-weight: 400;
+}
+
+.form-group__input:focus {
+    border-color: #60DB00;
+    box-shadow: 0 0 0 2px rgba(96, 219, 0, 0.15);
+}
+
+/* Estado error */
+.form-group__input--error {
+    border-color: #ff4444;
+    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.15);
+}
+
+.form-group__error {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.75rem;
+    color: #ff4444;
+    margin: 0;
+}
+
+/* ── Botón de Envío ── */
+.form-datos__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #60DB00;
+    color: #111111;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.form-datos__submit:hover {
+    background-color: #50c400;
+}
+
+.form-datos__submit:active {
+    transform: scale(0.98);
+}
+
+.form-datos__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-datos__submit svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ── Loading Spinner ── */
+.form-datos__spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(17, 17, 17, 0.3);
+    border-top-color: #111111;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ══════════════════════════════════════
+   ESTADO: ÉXITO (Pantalla de confirmación)
+══════════════════════════════════════ */
+.form-datos__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(96, 219, 0, 0.1);
+    border: 2px solid #60DB00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #60DB00;
+}
+
+.form-datos__success-title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #60DB00;
+    margin: 0;
+}
+
+.form-datos__success-msg {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
+}
+
+.form-datos__success-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #60DB00;
+    color: #111111;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.25s ease;
+    margin-top: 0.5rem;
+}
+
+.form-datos__success-btn:hover {
+    background-color: #50c400;
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 600px) {
+    .form-datos__card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .form-datos__row {
+        grid-template-columns: 1fr;
+    }
+}

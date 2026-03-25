@@ -46,7 +46,7 @@ export default function VentaSuplementos() {
                         según tus objetivos (ganancia muscular, pérdida de grasa, energía o recuperación).
                     </p>
 
-                    <a href="#contacto" className="supplements__btn">
+                    <a href="#catalogo-suplementos" className="supplements__btn">
                         Conoce más
                     </a>
 

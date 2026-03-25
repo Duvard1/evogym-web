@@ -155,7 +155,7 @@ export default function Membresias() {
                                     </div>
                                 </div>
 
-                                <a href="#inscribirme" className="membership-card__btn-top">
+                                <a href={`/inscripcion?plan=${plan.id}`} className="membership-card__btn-top">
                                     Inscríbete
                                 </a>
                             </div>

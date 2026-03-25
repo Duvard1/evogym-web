@@ -1,0 +1,90 @@
+/* ══════════════════════════════════════
+   INSCRIPCIÓN - PRESENTACIÓN SECTION
+══════════════════════════════════════ */
+
+.inscripcion-presentacion {
+    width: 100%;
+    /* Fondo oscuro tal cual la imagen nueva (#131313 a #151515) */
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
+    /* Ajustando padding top para empujar el texto si el navbar es sticky */
+    padding: 160px 0 4rem 0; 
+}
+
+.inscripcion-presentacion__inner {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* ── Título Principal ── */
+.inscripcion-presentacion__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+}
+
+/* ── Texto Superior ── */
+.inscripcion-presentacion__desc {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    color: #b5b5b5; 
+    line-height: 1.6;
+    margin: 0 0 3rem 0;
+    max-width: 650px;
+}
+
+/* ── Caja de Alerta Importante (Verde oscuro) ── */
+.inscripcion-presentacion__alert {
+    /* Fondo verde muy oscuro con ligero tono oliva o verde institucional */
+    background-color: rgba(96, 219, 0, 0.05);
+    /* Borde verde institucional oscuro/opaco */
+    border: 1px solid rgba(96, 219, 0, 0.4); 
+    border-radius: 8px;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: left;
+    width: 100%;
+}
+
+.alert-icon {
+    flex-shrink: 0;
+}
+
+.alert-text {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.95rem;
+    color: #a0a0a0; 
+    line-height: 1.5;
+    margin: 0;
+}
+
+.alert-text strong {
+    font-weight: 700;
+    color: #dedede; 
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 600px) {
+    .inscripcion-presentacion {
+        padding: 140px 0 3rem 0;
+    }
+
+    .inscripcion-presentacion__alert {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,205 @@
+/* ══════════════════════════════════════
+   PLAN SELECTOR SECTION
+══════════════════════════════════════ */
+
+.plan-selector {
+    width: 100%;
+    /* Fondo oscuro para que combine con Presentacion.css */
+    background-color: #131313;
+    padding: 2rem 0 6rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.plan-selector__inner {
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan-selector__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3.5rem 0;
+    text-align: center;
+}
+
+/* ── Grid/Flex de Tarjetas ── */
+.plan-selector__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* ── Tarjeta de Plan ── */
+.plan-card {
+    width: 100%;
+    max-width: 320px;
+    background-color: transparent;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    /* Evitar selección de texto al dar varios clics */
+    user-select: none; 
+}
+
+.plan-card:hover {
+    border-color: #555555;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ESTADO SELECCIONADO */
+.plan-card--active {
+    border-color: #60DB00;
+    background-color: rgba(96, 219, 0, 0.04);
+}
+.plan-card--active:hover {
+    border-color: #60DB00;
+    background-color: rgba(96, 219, 0, 0.04);
+}
+
+/* Check superior derecho al estar activo */
+.plan-card__check-indicator {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 20px;
+    height: 20px;
+    background-color: #60DB00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.plan-card--active .plan-card__check-indicator {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.plan-card__check-indicator svg {
+    width: 12px;
+    height: 12px;
+    stroke: #131313; 
+    stroke-width: 3;
+}
+
+/* ── Título del Plan ── */
+.plan-card__name {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    transition: color 0.3s ease;
+}
+
+.plan-card--active .plan-card__name {
+    color: #60DB00; /* Se vuelve verde al seleccionar como en la imagen */
+}
+
+/* ── Etiqueta Ahorro (Badge) ── */
+.plan-card__badge {
+    background-color: #60DB00;
+    color: #111111;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    align-self: flex-start; /* No ocupa todo el ancho */
+    margin-bottom: 1rem;
+}
+
+/* ── Precio ── */
+.plan-card__price-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+}
+
+.plan-card__price {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #60DB00;
+    margin: 0;
+}
+
+.plan-card__period {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+
+/* ── Lista de beneficios ── */
+.plan-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.plan-card__feature {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: #dedede; /* Texto claro de base */
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.plan-card--active .plan-card__feature {
+    color: #60DB00; /* Textos verdes al estar activos */
+}
+
+/* Checkout SVG icon */
+.feature-icon-chk {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    /* Color base es gris muy claro/blanco y verde cuando está activo */
+    stroke: #ffffff;
+    transition: stroke 0.3s ease;
+}
+
+.plan-card--active .feature-icon-chk {
+    stroke: #60DB00; 
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .plan-card {
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .plan-card {
+        max-width: 100%;
+    }
+}
