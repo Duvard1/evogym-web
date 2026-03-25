@@ -1,0 +1,130 @@
+.supplements {
+    position: relative;
+    width: 100%;
+    /* Alto adaptativo, pero con un padding generoso para que parezca un banner grande */
+    padding: 8rem 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Imagen de fondo ── */
+.supplements__bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.supplements__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ── Overlay oscuro sobre la imagen ── */
+.supplements__overlay {
+    position: absolute;
+    inset: 0;
+    /* Un gradiente que sea más oscuro a la izquierda donde va el texto */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+/* ── Contenedor de contenido ── */
+.supplements__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.supplements__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 650px;
+    /* Limita el ancho del texto para que no cruce toda la pantalla */
+}
+
+/* ── Caja del Logo "transparente verde" ── */
+.supplements__logo-box {
+    /* Usamos el verde de tu variable global con un canal alfa (opacidad) para la transparencia */
+    background-color: rgba(96, 219, 0, 0.15);
+    padding: 0.6rem 1.25rem;
+    border-radius: 4px;
+    /* Un ligero borde redondeado */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.supplements__logo-img {
+    width: auto;
+    height: 24px;
+    /* Ajustable dependiendo de qué tan grande sea el logo WebP */
+    object-fit: contain;
+}
+
+/* ── Textos ── */
+.supplements__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.supplements__description {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Botón ── */
+.supplements__btn {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #000000;
+    /* Botón oscuro como en la imagen */
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background-color 0.2s, transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.supplements__btn:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .supplements {
+        padding: 5rem 0;
+    }
+
+    .supplements__overlay {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    .supplements__logo-img {
+        height: 20px;
+    }
+}

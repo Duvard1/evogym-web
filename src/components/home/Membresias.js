@@ -107,9 +107,6 @@ export default function Membresias() {
     return (
         <section id="membresias" className="memberships">
 
-            {/* ── Fondo Principal ── 
-                Ruta recomendada: public/images/membresias/bg-membresias.webp
-            */}
             <div className="memberships__bg-wrapper">
                 <Image
                     src="/images/membresias/bg-membresias.webp"

@@ -1,0 +1,298 @@
+/* ══════════════════════════════════════
+   SUPLEMENTOS (CATÁLOGO) SECTION
+══════════════════════════════════════ */
+
+.shop {
+    width: 100%;
+    /* Fondo neutro muy claro para que las tarjetas blancas resalten con sus sombras */
+    background-color: #FAFAFA;
+    padding: 6rem 0;
+}
+
+.shop__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shop__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 4rem 0;
+    text-align: center;
+}
+
+/* ── Grid Principal de Productos ── */
+.shop__grid {
+    display: grid;
+    /* 3 columnas en desktop */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+/* ── Tarjeta de Producto ── */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+/* ── Imagen del Producto ── */
+.product-card__img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Cuadrado perfecto para las fotos */
+    margin-bottom: 1.5rem;
+    background-color: #ffffff; 
+}
+
+.product-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Contain evita que se corte el producto */
+}
+
+/* ── Encabezado Tarjeta (Categoría y Precio Base) ── */
+.product-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.product-card__badge {
+    background-color: #EAEAEA;
+    color: #555555;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.product-card__base-price {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #56C800; /* Verde brillante que se ve en la foto de precio */
+    margin: 0;
+}
+
+/* ── Información de Texto ── */
+.product-card__title {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2D2F31;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.35;
+}
+
+.product-card__desc {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: #777777;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+}
+
+/* ── Opciones de Compra (Scoop / Completo) ── */
+.product-card__options-title {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.95rem;
+    color: #888888;
+    margin: 0 0 0.75rem 0;
+}
+
+.product-card__options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-card__option-btn {
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.product-card__option-btn.is-active {
+    border-color: #60DB00;
+    background-color: rgba(96, 219, 0, 0.06);
+}
+
+.product-option__name {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2D2F31;
+}
+
+.product-option__detail {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+/* ── Cantidad ── */
+.product-card__quantity-section {
+    margin-bottom: 1.5rem;
+}
+
+.product-card__quantity-label {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.95rem;
+    color: #888888;
+    margin: 0 0 0.5rem 0;
+}
+
+.product-card__quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #888888;
+    border-radius: 6px;
+    color: #2D2F31;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.quantity-btn:not(:disabled):hover {
+    background-color: #f0f0f0;
+}
+
+.quantity-btn:disabled {
+    border-color: #dcdcdc;
+    color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+.quantity-display {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2D2F31;
+    min-width: 20px;
+    text-align: center;
+}
+
+.quantity-max {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+/* ── Total y Acción ── */
+.product-card__footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-card__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    color: #888888;
+    font-size: 1rem;
+}
+
+.product-card__total-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+/* Botón de WhatsApp */
+.product-card__whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #25D366; /* Verde Oficial de WhatsApp */
+    color: #ffffff;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.product-card__whatsapp-btn:hover {
+    background-color: #20BA56;
+    transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .shop__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .shop {
+        padding: 4rem 0;
+    }
+
+    .shop__grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        padding: 1.25rem;
+    }
+}
