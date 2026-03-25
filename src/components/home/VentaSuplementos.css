@@ -112,9 +112,7 @@
 }
 
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .supplements {
         padding: 5rem 0;

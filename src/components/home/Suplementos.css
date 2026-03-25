@@ -1,7 +1,3 @@
-/* ══════════════════════════════════════
-   SUPLEMENTOS (CATÁLOGO) SECTION
-══════════════════════════════════════ */
-
 .shop {
     width: 100%;
     /* Fondo neutro muy claro para que las tarjetas blancas resalten con sus sombras */
@@ -56,15 +52,17 @@
 .product-card__img-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; /* Cuadrado perfecto para las fotos */
+    aspect-ratio: 1 / 1;
+    /* Cuadrado perfecto para las fotos */
     margin-bottom: 1.5rem;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 .product-card__img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Contain evita que se corte el producto */
+    object-fit: contain;
+    /* Contain evita que se corte el producto */
 }
 
 /* ── Encabezado Tarjeta (Categoría y Precio Base) ── */
@@ -91,7 +89,8 @@
     font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
-    color: #56C800; /* Verde brillante que se ve en la foto de precio */
+    color: #56C800;
+    /* Verde brillante que se ve en la foto de precio */
     margin: 0;
 }
 
@@ -246,7 +245,8 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #25D366; /* Verde Oficial de WhatsApp */
+    background-color: #25D366;
+    /* Verde Oficial de WhatsApp */
     color: #ffffff;
     font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
     font-size: 1rem;
@@ -272,9 +272,7 @@
 }
 
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .shop__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
