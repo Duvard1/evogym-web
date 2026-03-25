@@ -1,0 +1,152 @@
+.facilities {
+    width: 100%;
+    /* Color gris claro cálido basado en la imagen */
+    background-color: #e6e5e3;
+    padding: 6rem 0;
+}
+
+.facilities__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: #111111;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5rem;
+}
+
+.facilities__inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* Espaciado entre cada fila de instalación */
+}
+
+/* ── Fila (Imagen + Texto) ── */
+.facility-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* Invierte el orden para las filas pares en desktop (texto a la izquierda, foto a la derecha) */
+.facility-row--reversed {
+    flex-direction: row-reverse;
+}
+
+/* ── Imagen bloque ── */
+.facility-row__img-wrapper {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    /* Proporción ancha para las fotos como en el diseño (tipo 4:3) */
+    aspect-ratio: 4 / 3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    /* Sombra suave para separar del fondo gris */
+}
+
+.facility-row__img-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.facility-row__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── Texto bloque ── */
+.facility-row__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.facility-row__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.facility-row__description {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: #4a4a4a;
+    /* Gris oscuro para contraste suave y buena lectura */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Botón (solo para suplementos) ── */
+.facility-row__btn {
+    align-self: flex-start;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 0.75rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.facility-row__btn:hover {
+    background-color: #2a2a2a;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .facility-row {
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .facilities {
+        padding: 4rem 0;
+    }
+
+    .facilities__title {
+        margin-bottom: 3.5rem;
+    }
+
+    .facilities__inner {
+        gap: 4.5rem;
+    }
+
+    /* En móvil, la imagen (que está 1ra en el DOM) 
+       queda arriba naturalemte para TODOS los items */
+    .facility-row,
+    .facility-row--reversed {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .facility-row__img-wrapper {
+        width: 100%;
+        max-width: 500px;
+        /* Limita un poco a tamaño medio */
+        margin: 0 auto;
+    }
+
+    .facility-row__content {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        /* Centra el botón internamente */
+    }
+}

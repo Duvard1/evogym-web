@@ -1,0 +1,326 @@
+.memberships {
+    position: relative;
+    width: 100%;
+    padding: 6rem 0;
+    /* Fondo negro de respaldo */
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* ── Fondo e Imagen Principal ── */
+.memberships__bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.memberships__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Overlay radial oscurecido bordes -> claro centro */
+.memberships__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(14, 14, 14, 0.7) 0%, rgba(0, 0, 0, 0.95) 85%, #000000 100%);
+    z-index: 1;
+}
+
+/* ── Contenedor General ── */
+.memberships__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Encabezado Membresías ── */
+.memberships__header {
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 4rem;
+}
+
+.memberships__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+}
+
+.memberships__description {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Grid/Flex de Tarjetas ── */
+.memberships__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 6rem;
+}
+
+/* ── Tarjeta de Membresía ── */
+.membership-card {
+    width: 100%;
+    max-width: 340px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: #111111;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.membership-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* -- Parte Superior: Foto + Precio -- */
+.membership-card__top {
+    position: relative;
+    height: 200px;
+    margin: 0.75rem 0.75rem 0 0.75rem;
+    /* Margen blanco alrededor */
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    /* Borde interno redondeado */
+    overflow: hidden;
+    /* Recorta la imagen a la forma redondeada */
+}
+
+.membership-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.membership-card__top-overlay {
+    position: absolute;
+    inset: 0;
+    /* Ajuste ligero del degradado para mejor legibilidad */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+.membership-card__info {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.membership-card__name {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+}
+
+.membership-card__price-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.membership-card__price {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.membership-card__subprice {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-brand, #60DB00);
+}
+
+.membership-card__btn-top {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #111111;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.membership-card__btn-top:hover {
+    background-color: var(--color-brand, #60DB00);
+    color: #ffffff;
+}
+
+/* -- Parte Inferior: Lista de beneficios -- */
+.membership-card__bottom {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.membership-card__subtitle {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 1rem 0;
+}
+
+.membership-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.membership-card__feature {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: #444444;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Check icon using a pseudo-element or inline svg. We'll use JS inline SVG, so just layout here */
+.feature-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+}
+
+/* ── Promociones y Eventos ── */
+.promotions {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promotions__title {
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+    text-align: center;
+}
+
+.promotions__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    width: 100%;
+}
+
+.promotions__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.promotions__img-wrapper {
+    position: relative;
+    width: 350px;
+    max-width: 100%;
+    /* Ratio estimado de las fotos de promo, ajuste libre según imagen real */
+    aspect-ratio: 4 / 5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.promotions__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+.promotions__btn {
+    background-color: #ffffff;
+    color: #111111;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.6rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.promotions__btn:hover {
+    background-color: var(--color-brand, #60DB00);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .memberships__list {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .memberships {
+        padding: 4rem 0;
+    }
+
+    .memberships__header {
+        margin-bottom: 3rem;
+    }
+
+    .memberships__list {
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .promotions__list {
+        gap: 2rem;
+    }
+
+    .promotions__img-wrapper {
+        aspect-ratio: 1 / 1;
+        /* Cuadrado o auto en moviles si es flyer */
+        max-width: 320px;
+    }
+}
