@@ -9,7 +9,7 @@ export default function Hero() {
 
 
             <img
-                src="/images/hero/hero-bg.png"
+                src="/images/hero/hero-bg.webp"
                 alt="Interior del gimnasio EvoGym"
                 className="hero__bg"
                 draggable="false"
@@ -22,7 +22,7 @@ export default function Hero() {
 
                 <div className="hero__logo">
                     <Image
-                        src="/images/hero/hero-logo.png"
+                        src="/images/hero/hero-logo.webp"
                         alt="EvoGym"
                         width={220}
                         height={60}

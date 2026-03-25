@@ -1,0 +1,122 @@
+.presentation {
+    width: 100%;
+    /* Color de fondo para que contraste (puedes ajustarlo si prefieres gris muy oscuro) */
+    background-color: #000000;
+    padding: 5rem 0;
+}
+
+.presentation__inner {
+    /* El contenedor está centrado y no es excesivamente ancho como en la foto */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* ── Imagen superior (Panorámica) ── */
+.presentation__top-image-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Efecto hover suave (opcional para dar dinamismo) */
+    transition: transform 0.3s ease;
+}
+
+.presentation__top-image-wrapper:hover {
+    transform: translateY(-4px);
+}
+
+.presentation__top-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 8;
+    /* Controla la proporción de la foto superior */
+}
+
+/* ── Contenido de texto ── */
+.presentation__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+    /* Pequeño margen interno p/ que respire */
+}
+
+.presentation__title {
+    /* Usamos la fuente Red Rose que es el estándar para Títulos */
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.presentation__description {
+    /* Montserrat para el cuerpo de texto */
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* ── Imágenes inferiores (Grid en 2 columnas) ── */
+.presentation__bottom-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.presentation__bottom-image-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.presentation__bottom-image-wrapper:hover {
+    transform: translateY(-4px);
+}
+
+.presentation__bottom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 10;
+    /* Controla la proporción de las fotos de abajo */
+}
+
+/* RESPONSIVE */
+
+/* Para tablets y móviles */
+@media (max-width: 640px) {
+    .presentation {
+        padding: 3.5rem 0;
+    }
+
+    .presentation__inner {
+        gap: 2rem;
+    }
+
+    /* En pantallas muy angostas ponemos las 2 imágenes de abajo en 1 sola columna */
+    .presentation__bottom-images {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .presentation__top-image {
+        aspect-ratio: 16 / 9;
+    }
+
+    .presentation__bottom-image {
+        aspect-ratio: 16 / 9;
+    }
+}

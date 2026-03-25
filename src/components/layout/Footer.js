@@ -119,15 +119,10 @@ export default function Footer() {
 
                     {/* ── Logo + información ── */}
                     <div className="footer-brand">
-                        {/*
-                          LOGO IMAGE
-                          Coloca tu imagen en: public/images/logo/evogym-logo.png
-                          (o .svg / .webp — ajusta el src abajo)
-                          Tamaño recomendado: 160 × 48 px
-                        */}
+
                         <div className="footer-brand__logo-wrapper">
                             <Image
-                                src="/images/logo/evogym-logo.png"
+                                src="/images/logo/evogym-logo.webp"
                                 alt="EvoGym logo"
                                 width={160}
                                 height={48}

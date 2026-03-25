@@ -1,0 +1,158 @@
+/* ══════════════════════════════════════
+   SERVICIOS SECTION
+══════════════════════════════════════ */
+
+.services {
+    width: 100%;
+    /* Fondo oscuro continuo */
+    background-color: #000000;
+    padding: 5rem 0;
+}
+
+.services__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.services__title {
+    /* Fuente Red Rose global para títulos */
+    font-family: var(--font-red-rose), cursive;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+}
+
+/* ── Grid principal ── */
+.services__grid {
+    display: grid;
+    /* Divide el espacio en 6 columnas para manejar fácilmente 3 y 2 elementos por fila */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+}
+
+/* ── Tarjeta de Servicio ── */
+.service-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    /* Aspect ratio generico base para que todas tengan proporciones parecidas */
+    aspect-ratio: 16 / 10;
+    /* Pequeño efecto dinámico al pasar el cursor */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default; /* Puedes cambiar a pointer si los harás clickeables en el futuro */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Tamaños en base a las 6 columnas */
+
+/* Los 3 primeros servicios (Toma medidas, Cardio, Cycling) ocupan 2/6 = 33% */
+.service-card--col3 {
+    grid-column: span 2;
+}
+
+/* Los 2 últimos servicios (Asesoría, Pilates) ocupan 3/6 = 50% */
+.service-card--col2 {
+    grid-column: span 3;
+    /* Las últimas tarjetas se benefician de un aspect-ratio algo más ancho en desktop */
+    aspect-ratio: 16 / 9;
+}
+
+/* ── Imagen ── */
+.service-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-card__img {
+    transform: scale(1.04);
+}
+
+/* ── Overlay sombreado abajo para leer texto ── */
+.service-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+}
+
+/* ── Nombre del servicio ── */
+.service-card__name {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+    z-index: 2;
+}
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* Tablets (hasta 768px) */
+@media (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* En tablet, todo ocupa 1 de las 2 columnas, o el ancho completo para evitar impares feos */
+    .service-card--col3,
+    .service-card--col2 {
+        grid-column: span 1;
+    }
+
+    /* El tercer elemento (Cycling) que quede solo, lo hacemos expandirse para rellenar hueco */
+    .service-card:nth-child(3) {
+        grid-column: span 2;
+        aspect-ratio: 21 / 9;
+    }
+}
+
+/* Móvil vertical (hasta 480px) */
+@media (max-width: 480px) {
+    .services {
+        padding: 3.5rem 0;
+    }
+    
+    .services__inner {
+        gap: 2rem;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr; /* Todo 1 columna */
+    }
+
+    .service-card--col3,
+    .service-card--col2,
+    .service-card:nth-child(3) {
+        grid-column: span 1;
+        aspect-ratio: 16 / 10;
+    }
+
+    .service-card__name {
+        font-size: 1.2rem;
+        bottom: 0.85rem;
+        left: 1rem;
+    }
+}

@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="evogym-nav__logo" aria-label="EvoGym inicio">
             <Image
-              src="/images/logo/evogym-logo.png"
+              src="/images/logo/evogym-logo.webp"
               alt="EvoGym"
               width={140}
               height={40}
