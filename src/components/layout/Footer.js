@@ -28,10 +28,10 @@ const SCHEDULE = [
 
 /* ─── Nav links ─── */
 const NAV_LINKS = [
-    { label: "Servicios", href: "#servicios" },
-    { label: "Instalaciones", href: "#instalaciones" },
-    { label: "Membresías", href: "#membresias" },
-    { label: "Suplementos", href: "#suplementos" },
+    { label: "Servicios", href: "/#servicios" },
+    { label: "Instalaciones", href: "/#instalaciones" },
+    { label: "Membresías", href: "/#membresias" },
+    { label: "Suplementos", href: "/#suplementos" },
 ];
 
 /* ─── Social links
@@ -177,7 +177,7 @@ export default function Footer() {
                         <ul className="footer-nav__list">
                             {NAV_LINKS.map(({ label, href }) => (
                                 <li key={label}>
-                                    <a href={href} className="footer-nav__link">{label}</a>
+                                    <Link href={href} className="footer-nav__link">{label}</Link>
                                 </li>
                             ))}
                         </ul>

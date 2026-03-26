@@ -16,8 +16,8 @@ const redRose = Red_Rose({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
-
 export const metadata = {
+  metadataBase: new URL('https://evogym.com.ec'),
   title: {
     default: 'EVO GYM — Se parte de la evolución',
     template: '%s | EVO GYM',

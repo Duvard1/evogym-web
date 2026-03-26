@@ -109,7 +109,7 @@ function validarCedulaEcuatoriana(cedula) {
     }
 }
 
-export default function FormDatos({ selectedPlan }) {
+export default function FormDatos({ selectedPlan, onDataChange }) {
     // ── Estado del formulario ──
     const [formData, setFormData] = useState({
         cedula: "",
@@ -263,14 +263,29 @@ export default function FormDatos({ selectedPlan }) {
     };
 
     // ══════════════════════════════════════
-    // MÉTODO PÚBLICO: Validar todo el formulario
-    // (será llamado por el componente padre cuando
-    //  se implemente el botón de "Confirmar inscripción")
+    // NOTIFICAR AL PADRE (Lifting State Up)
     // ══════════════════════════════════════
-    /**
-     * Puedes exportar esta función o llamarla desde un ref
-     * para validar todo antes del envío final.
-     */
+    React.useEffect(() => {
+        if (!onDataChange) return;
+
+        // Validar si todos los campos requeridos tienen valor
+        const hasRequiredValues =
+            formData.cedula.trim().length === 10 &&
+            formData.nombres.trim().length >= 2 &&
+            formData.apellidos.trim().length >= 2 &&
+            formData.telefono.trim().length === 10;
+
+        // Comprobar si hay algún error activo
+        const hasErrors = Object.keys(errors).length > 0;
+
+        // Determinar validez general
+        const isValid = hasRequiredValues && !hasErrors;
+
+        onDataChange({
+            data: formData,
+            isValid: isValid
+        });
+    }, [formData, errors, onDataChange]);
 
     // ════════════════════════════════════════
     // RENDER: Formulario

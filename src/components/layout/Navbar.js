@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import "./Navbar.css";
 const NAV_LINKS = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Instalaciones", href: "#instalaciones" },
-  { label: "Suplementos", href: "#suplementos" },
-  { label: "Ubicación", href: "#ubicacion" },
-  { label: "Membresías", href: "#membresias", highlight: true },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Instalaciones", href: "/#instalaciones" },
+  { label: "Suplementos", href: "/#suplementos" },
+  { label: "Ubicación", href: "/#ubicacion" },
+  { label: "Membresías", href: "/#membresias", highlight: true },
 ];
 
 export default function Navbar() {
@@ -46,12 +46,12 @@ export default function Navbar() {
           <ul className="evogym-nav__links">
             {NAV_LINKS.map(({ label, href, highlight }) => (
               <li key={label}>
-                <a
+                <Link
                   href={href}
                   className={`evogym-nav__link${highlight ? " evogym-nav__link--highlight" : ""}`}
                 >
                   {label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -79,13 +79,13 @@ export default function Navbar() {
         <ul className="evogym-nav__drawer-links">
           {NAV_LINKS.map(({ label, href, highlight }) => (
             <li key={label}>
-              <a
+              <Link
                 href={href}
                 className={`evogym-nav__drawer-link${highlight ? " evogym-nav__link--highlight" : ""}`}
                 onClick={closeMenu}
               >
                 {label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
