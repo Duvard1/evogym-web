@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Presentacion from "@/components/inscripcion/Presentacion";
 import InscripcionClient from "@/components/inscripcion/InscripcionClient";
+import ScrollAnimation from "@/components/layout/ScrollAnimation";
 
 export const metadata = {
     title: "Inscripción a Membresía | EvoGym",
@@ -10,12 +11,16 @@ export const metadata = {
 export default function InscripcionPage() {
     return (
         <main>
-            <Presentacion />
+            <ScrollAnimation>
+                <Presentacion />
+            </ScrollAnimation>
 
             {/* Suspense necesario porque InscripcionClient usa useSearchParams() */}
-            <Suspense fallback={<div style={{ textAlign: "center", color: "#60DB00", padding: "2rem" }}>Cargando...</div>}>
-                <InscripcionClient />
-            </Suspense>
+            <ScrollAnimation>
+                <Suspense fallback={<div style={{ textAlign: "center", color: "#60DB00", padding: "2rem" }}>Cargando...</div>}>
+                    <InscripcionClient />
+                </Suspense>
+            </ScrollAnimation>
         </main>
     );
 }

@@ -67,6 +67,9 @@ export const metadata = {
     'geo.placename': 'Tambillo',
     'geo.position': '-0.405128;-78.54606',
   },
+  verification: {
+    google: '3vUDHyIqLrzhC4dgA_CowW-YaqQCCHr_CAa9_1j4E10',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -74,6 +77,7 @@ export default function RootLayout({ children }) {
     <html
       lang="es"
       className={`${montserrat.variable} ${redRose.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">
         <Navbar />

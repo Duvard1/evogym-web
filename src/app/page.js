@@ -5,6 +5,7 @@ import Instalaciones from "@/components/home/Instalaciones";
 import Membresias from "@/components/home/Membresias";
 import VentaSuplementos from "@/components/home/VentaSuplementos";
 import Suplementos from "@/components/home/Suplementos";
+import ScrollAnimation from "@/components/layout/ScrollAnimation";
 
 export default function Home() {
   const jsonLd = {
@@ -54,12 +55,24 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <Presentacion />
-      <Servicios />
-      <Instalaciones />
-      <Membresias />
-      <VentaSuplementos />
-      <Suplementos />
+      <ScrollAnimation>
+        <Presentacion />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Servicios />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Instalaciones />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Membresias />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <VentaSuplementos />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Suplementos />
+      </ScrollAnimation>
     </main>
   );
 }
