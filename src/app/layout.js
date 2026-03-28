@@ -24,12 +24,12 @@ export const metadata = {
   },
   description: 'Entrena en EVO GYM, el gimnasio más completo de Tambillo. Membresías desde $25. Zona de pesas, cardio, pilates, suplementos y más. ¡Sé parte de la evolución!',
   keywords: [
-    'gimnasio',
-    'gym tambillo ecuador',
-    'membresía gimnasio tambillo',
-    'entrenamiento tambillo',
-    'evo gym',
     'gimnasio tambillo',
+    'gym tambillo ecuador',
+    'evo gym',
+    'evogym',
+    'entrenamiento tambillo',
+    'membresía gimnasio tambillo',
     'suplementos tambillo',
   ],
 
