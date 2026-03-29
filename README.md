@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏋️‍♂️ EvoGym Web Application
 
-## Getting Started
+![EvoGym Banner](public/images/logo/evogym-logo.webp)
 
-First, run the development server:
+> **EvoGym** es más que un gimnasio; es una comunidad enfocada en el desarrollo físico y mental. Esta aplicación web ofrece una experiencia moderna, rápida y dinámica para conocer todo lo que nuestro centro de entrenamiento tiene para ofrecer.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📖 Índice
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- [Acerca del Proyecto](#acerca-del-proyecto)
+- [Características Principales](#características-principales)
+- [Tecnologías Usadas](#tecnologías-usadas)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Instalación y Configuración Local](#instalación-y-configuración-local)
+- [Scripts Disponibles](#scripts-disponibles)
+- [Optimización SEO](#optimización-seo)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌟 Acerca del Proyecto
 
-To learn more about Next.js, take a look at the following resources:
+La aplicación web de **EvoGym** está diseñada para proporcionar una presencia digital premium y atractiva para el gimnasio. Desarrollada con las últimas tecnologías web, la plataforma es completamente responsiva, rápida y está adaptada para ofrecer una excelente experiencia de usuario (UX) en cualquier dispositivo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+En ella, nuestros usuarios pueden explorar:
+- Nuestros planes de membresía.
+- Instalaciones especializadas.
+- Clases, horarios y servicios adicionales.
+- Venta de suplementos con asesoría nutricional.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Características Principales
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Diseño Premium y Responsivo:** Paleta de colores distintiva (Verde y Negro), con una interfaz adaptativa (Mobile, Tablet, Desktop) y animaciones fluidas.
+- **Sección de Membresías y Servicios:** Detalles claros sobre planes (Anual, Mensual, Diario) y servicios (Cardio, Pesas, Pilates, Yoga, Spinning, etc.).
+- **Venta de Productos y Suplementos:** Área dedicada para conocer y adquirir suplementos.
+- **Barra de Navegación y Footer Integrados:** Navegación fluida por todas las secciones (Hero, Schedule, About, Location, Contact, etc.).
+- **SEO Avanzado:** Optimización profunda con Metadatos (OpenGraph, Twitter Cards), `sitemap.xml`, `robots.txt`, y JSON-LD adaptado para negocios locales.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Tecnologías Usadas
+
+El proyecto está construido con un stack moderno enfocado en la velocidad y el rendimiento:
+
+- **Framework Core:** [Next.js (v16.2.1)](https://nextjs.org/)
+- **Librería UI:** [React (v19.2.4)](https://react.dev/)
+- **Estilos:** [Tailwind CSS (v4)](https://tailwindcss.com/)
+- **Animaciones:** [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+## 🚀 Instalación y Configuración Local
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+1. **Clona el repositorio:**
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd evogym-web
+   ```
+
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Inicia el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Abre el proyecto en tu navegador:**
+   Navega a [http://localhost:3000](http://localhost:3000) para ver la aplicación funcionando.
+
+---
+
+## 📜 Scripts Disponibles
+
+En el directorio principal, puedes ejecutar:
+
+- `npm run dev`: Inicia la aplicación en modo desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm run start`: Inicia el servidor de producción.
+- `npm run lint`: Ejecuta ESLint para analizar el código en busca de problemas.
+
+---
+
+## 🔍 Optimización SEO
+
+EvoGym Web está diseñado para tener la **máxima visibilidad orgánica** y un excelente posicionamiento local en Google gracias a:
+
+- Uso avanzado de metadatos.
+- Marcado semántico HTML5.
+- Estructura optimizada y generación de sitemaps.
+
+---
+
+**¡Gracias por visitar EvoGym! ¡Entrena duro, evoluciona siempre!** 💪
