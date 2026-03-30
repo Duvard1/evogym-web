@@ -17,6 +17,7 @@ export function validateInscripcionData(data) {
     if (!REGEX_TELEFONO.test(data.telefono)) errors.push("Teléfono inválido.");
     if (data.email && !REGEX_EMAIL.test(data.email)) errors.push("Email inválido.");
     if (!data.comprobante) errors.push("El número de comprobante es obligatorio.");
+    if (!data.cuentaCliente || data.cuentaCliente.length < 5) errors.push("El número de cuenta de origen es obligatorio y debe ser válido.");
 
     return {
         isValid: errors.length === 0,

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "./MetodoPago.css";
 
 /**
@@ -69,6 +70,10 @@ export default function MetodoPago({
     const [comprobante, setComprobante] = useState("");
     const [comprobanteError, setComprobanteError] = useState("");
 
+    // ── Estado de la cuenta de origen (cliente) ──
+    const [cuentaCliente, setCuentaCliente] = useState("");
+    const [cuentaClienteError, setCuentaClienteError] = useState("");
+
     // ── Modal ──
     const [showModal, setShowModal] = useState(false);
 
@@ -82,6 +87,9 @@ export default function MetodoPago({
     const [honeypot, setHoneypot] = useState("");
     const [cooldownRestante, setCooldownRestante] = useState(0); 
     const [lockoutMsg, setLockoutMsg] = useState("");
+    
+    // ── Consentimiento ──
+    const [consent, setConsent] = useState(false);
 
     // ══════════════════════════════════════
     // Temporizador Robusto (Contra Throttling)
@@ -140,10 +148,42 @@ export default function MetodoPago({
     };
 
     // ══════════════════════════════════════
+    // Validación de la cuenta origen
+    // ══════════════════════════════════════
+    const validateCuentaCliente = (value) => {
+        const trimmed = value.trim();
+        if (!trimmed) {
+            setCuentaClienteError("El número de cuenta es obligatorio.");
+            return false;
+        }
+        if (!/^[0-9]+$/.test(trimmed)) {
+            setCuentaClienteError("Solo se permiten números.");
+            return false;
+        }
+        if (trimmed.length < 5) {
+            setCuentaClienteError("El número de cuenta debe tener al menos 5 dígitos.");
+            return false;
+        }
+        setCuentaClienteError("");
+        return true;
+    };
+
+    const handleCuentaClienteChange = (e) => {
+        const value = e.target.value.replace(/\D/g, "").slice(0, 20);
+        setCuentaCliente(value);
+        if (cuentaClienteError) setCuentaClienteError("");
+    };
+
+    const handleCuentaClienteBlur = () => {
+        validateCuentaCliente(cuentaCliente);
+    };
+
+    // ══════════════════════════════════════
     // ¿Formulario completo y válido?
     // ══════════════════════════════════════
     const comprobanteValido = comprobante.trim().length >= 3 && REGEX_COMPROBANTE.test(comprobante.trim());
-    const isAllValid = formDatosValid && formFechasValid && comprobanteValido && selectedPlan;
+    const cuentaClienteValido = cuentaCliente.trim().length >= 5 && /^[0-9]+$/.test(cuentaCliente.trim());
+    const isAllValid = formDatosValid && formFechasValid && comprobanteValido && cuentaClienteValido && selectedPlan && consent;
 
     // ══════════════════════════════════════
     // Abrir Modal
@@ -157,8 +197,9 @@ export default function MetodoPago({
 
         setLockoutMsg("");
 
-        // Validar comprobante antes de abrir
+        // Validar comprobante y cuenta origen antes de abrir
         if (!validateComprobante(comprobante)) return;
+        if (!validateCuentaCliente(cuentaCliente)) return;
         if (!isAllValid) return;
         setShowModal(true);
     };
@@ -181,6 +222,7 @@ export default function MetodoPago({
             fechaAsistencia: formFechasData.fechaAsistencia,
             fechaFin: formFechasData.fechaFin,
             comprobante: comprobante.trim(),
+            cuentaCliente: cuentaCliente.trim(),
             metodoPago: activeTab === "qr" ? "QR Deuna" : "Transferencia Bancaria",
             honeypot: honeypot, // Se envía al servidor para verificar si es un bot
         };
@@ -356,6 +398,45 @@ export default function MetodoPago({
                         )}
                     </div>
 
+                    {/* ── Cuenta del Cliente ── */}
+                    <div className="metodo-pago__comprobante-card">
+                        <p className="metodo-pago__comprobante-label">No. Cuenta de Origen</p>
+                        <input
+                            type="text"
+                            inputMode="numeric"
+                            placeholder="Ejemplo: 2200156789"
+                            className={`metodo-pago__comprobante-input ${cuentaClienteError ? "metodo-pago__comprobante-input--error" : ""}`}
+                            value={cuentaCliente}
+                            onChange={handleCuentaClienteChange}
+                            onBlur={handleCuentaClienteBlur}
+                            maxLength={20}
+                            autoComplete="off"
+                        />
+                        {cuentaClienteError ? (
+                            <p className="metodo-pago__comprobante-error">{cuentaClienteError}</p>
+                        ) : (
+                            <p className="metodo-pago__comprobante-hint">
+                                🏦 Ingresa el número de cuenta desde la cual realizaste el pago para poder validarlo.
+                            </p>
+                        )}
+                    </div>
+
+                    {/* ── CONSENTIMIENTO ── */}
+                    <div className="metodo-pago__consent">
+                        <label className="metodo-pago__consent-label">
+                            <input
+                                type="checkbox"
+                                className="metodo-pago__consent-checkbox"
+                                checked={consent}
+                                onChange={(e) => setConsent(e.target.checked)}
+                                required
+                            />
+                            <span className="metodo-pago__consent-text">
+                                Acepto el uso de mis datos personales para el registro de membresía, conforme a la <Link href="/politica-privacidad" target="_blank" className="metodo-pago__consent-link">política de privacidad</Link>.
+                            </span>
+                        </label>
+                    </div>
+
                     {/* ── Botón ── */}
                     {lockoutMsg && cooldownRestante <= 0 && (
                         <p style={{ color: "#e6a817", textAlign: "center", marginTop: "1rem", fontSize: "0.9rem" }}>
@@ -448,6 +529,10 @@ export default function MetodoPago({
                             <div className="modal__row">
                                 <span className="modal__label">No. Comprobante</span>
                                 <span className="modal__value">{comprobante.trim()}</span>
+                            </div>
+                            <div className="modal__row">
+                                <span className="modal__label">No. Cuenta Origen</span>
+                                <span className="modal__value">{cuentaCliente.trim()}</span>
                             </div>
                         </div>
 

@@ -32,6 +32,7 @@ const NAV_LINKS = [
     { label: "Instalaciones", href: "/#instalaciones" },
     { label: "Membresías", href: "/#membresias" },
     { label: "Suplementos", href: "/#suplementos" },
+    { label: "Política de Privacidad", href: "/politica-privacidad" },
 ];
 
 /* ─── Social links

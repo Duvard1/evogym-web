@@ -247,6 +247,51 @@
     margin: 0 0 0.25rem 0;
 }
 
+/* ── Consentimiento ── */
+.metodo-pago__consent {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 1.25rem;
+    background-color: rgba(96, 219, 0, 0.05);
+    border: 1px solid rgba(96, 219, 0, 0.2);
+    border-radius: 8px;
+}
+
+.metodo-pago__consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    cursor: pointer;
+}
+
+.metodo-pago__consent-checkbox {
+    margin-top: 0.15rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: #60DB00;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.metodo-pago__consent-text {
+    font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: #dedede;
+    line-height: 1.5;
+}
+
+.metodo-pago__consent-link {
+    color: #60DB00;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.metodo-pago__consent-link:hover {
+    color: #50c400;
+}
+
 /* ── Botón Revisar y Confirmar ── */
 .metodo-pago__submit-btn {
     display: flex;
